@@ -43,7 +43,7 @@
 
   // basket and cart are used to mean the same thing.
   const domBasket = {
-    // reference to basket icon in the header.
+    // reference to basket icon in the main-header.
     'icon': document.getElementById('basket-icon'),
     // reference to number of items in basket.
     'item-count': document.getElementById('basket-items'),
@@ -63,7 +63,7 @@
   */
 
   // Front page, #main-content listener to captue any message types.
-  domMainContent.addEventListener('click', (e) => {
+  domMainContent.addEventListener('click', e => {
     const matchId = regExTest(e.target.id)
     switch (true) {
       // listen for add button clicks.
@@ -78,7 +78,44 @@
       default:
         console.log('NoOp');
     }
+  })
 
+  domBasket.content.addEventListener('click', e => {
+    const id = e.target.id
+    const matchId = regExTest(id)
+    const matchContinueShopping = matchId(/continue-shopping/)
+    const matchRemove = matchId(/remove#([a-z]{2}\d{4})/)
+    switch (true) {
+      case matchContinueShopping:
+        console.log("Close basket and show front-page again.")
+        domMainContent.style.display = 'grid'
+        domBasket.content.style.display = 'none'
+        break;
+      case matchRemove:
+        const bikeId = id.match(/[a-z]{2}\d{4}/)[0]
+        const result = basket.items.filter(bike => bike.id !== bikeId)
+        basket.items = result
+        domBasket['item-count'].innerText = result.length
+        domBasket['total'].innerText = Math.round(result.reduce((p,c) => p+c.price[0], 0) *100) / 100
+        document.getElementById(bikeId).remove()
+        break;
+      default:
+        console.log("NoOp")
+        break;
+    }
+  })
+
+  // listen for clicks on the main-header.
+  domBasket.icon.addEventListener('click', e => {
+    const matchId = regExTest(e.target.id)
+    switch (true) {
+      case matchId(/basket-i/):
+        console.log("You want to see what is in the basket")
+        showBasket(e)
+        break;
+      default:
+        console.log("NoOp")
+    }
   })
 
   /*
@@ -104,32 +141,31 @@
   }
 
   function showBasket(e) {
-    if (e.target.parentElement.id === 'basket') {
-      domMainContent.style.display = 'none'
-      domBasketContent.style.display = 'grid'
-      domBasketContent.innerHTML =
-      `
-        <h2>You have ${basket.items.length} items in your basket</h2>
-        <table>
-          <tbody>
-            ${basket.items.map((v, i) => {
-              return (`
-                <tr id="${v.id}">
-                  <td><img src=${v.imgsrc} /></td>
-                  <td>${v.hdg}</td>
-                  <td>${v.price.length > 1 ? (`£${v.price[0]} - £${v.price[v.price.length-1]}`) : (`£${v.price[0]}`)}</td>
-                  <td><button id="remove#${v.id}" class="remove">Remove</button></td>
-                </tr>
-              `)}).join('')}
-          </tbody>
-        </table>
+    console.log(e.target.id)
+    domMainContent.style.display = 'none'
+    domBasket.content.style.display = 'grid'
+    domBasket.content.innerHTML =
+    `
+      <h2>Your basket:</h2>
+      <table>
+        <tbody>
+          ${basket.items.map((v, i) => {
+            return (`
+              <tr id="${v.id}">
+                <td><img src=${v.imgsrc} /></td>
+                <td>${v.hdg}</td>
+                <td>${v.price.length > 1 ? (`£${v.price[0]} - £${v.price[v.price.length-1]}`) : (`£${v.price[0]}`)}</td>
+                <td><button id="remove#${v.id}" class="remove">Remove</button></td>
+              </tr>
+            `)}).join('')}
+        </tbody>
+      </table>
 
-        <div>
-          <button id="continue-shopping">Continue shopping</button>
-          <button id="checkout">Check out</button>
-        </div>
-      `
-    }
+      <div>
+        <button id="continue-shopping">Continue shopping</button>
+        <button id="checkout">Check out</button>
+      </div>
+    `
   }
 
 }())

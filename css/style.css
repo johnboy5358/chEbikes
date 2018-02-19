@@ -95,17 +95,17 @@ body{
   font-weight: bold;
 }
 
-#basket-icon{
+#basket-hdr{
   font-size: 1.2rem;
   font-weight: bold;
   float: right;
 }
 
-#basket-icon i{
+#basket-hdr i{
   transform: scale(1.3) !important;
 }
 
-#basket-icon:hover{
+#basket-hdr:hover{
   cursor: pointer;
 }
 

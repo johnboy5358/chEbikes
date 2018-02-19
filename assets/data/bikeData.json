@@ -1,0 +1,46 @@
+{
+  "bikeData": [
+{
+  "id": "cs0001",
+  "hdg": "Cube Stereo Hybrid 140 HPA Pro 500 E Bike 2017",
+  "imgsrc": "assets/images/cubeStereoHybrid140hpaPro500.jpg",
+  "price": [2549.99, 2558.99],
+  "brieftxt": "Cube’s Stereo Hybrid HPA 27.5 has turned out to be one of the most popular full suspension e-bikes with cycling magazines and websites; it's completely changed the face of e-mountain biking since Cube introduced it ..."
+},
+{
+  "id": "cs0002",
+  "hdg": "Cube Stereo Hybrid 140 HPA 27.5 Race",
+  "imgsrc": "assets/images/cubeStereoHybride140hpa.jpg",
+  "price": [2619.99],
+  "brieftxt": "Cube's Stereo Hybrid 140 HPA 27.5 Race E-Bike sets the benchmark for an all-mountain Hybrid. Whether it's the frame's exceptional balance and low weight, the Agile Ride Geometry's superb trail manners or the reliable, range-topping components ..."
+},
+{
+  "id": "vs0001",
+  "hdg": "Vitus Bikes E-Sommet Suspension E-Bike - Deore 1x10 2018",
+  "imgsrc": "assets/images/vitusESommetSuspensionEbikeDeore1x10.jpg",
+  "price": [3199.99],
+  "brieftxt": "Supercharge your ride with the Vitus E-Sommet Suspension E-Bike. Enduro doesn’t have to be gravity focussed anymore - now you can experience the buzz of carving corners on both the climbs and the descents with electronic assistance ..."
+},
+{
+  "id": "vs0002",
+  "hdg": "Vitus Bikes E-Sommet VR Suspension E-Bike - SLX 1x11 2018",
+  "imgsrc": "assets/images/vitusESommetVr.jpg",
+  "price": [3599.99],
+  "brieftxt": "Supercharge your ride with Vitus' E-Sommet VR Suspension E-Bike. Enduro doesn’t have to be gravity focussed anymore - now you can experience the buzz of carving corners on both the climbs and the descents with electronic assistance ..."
+},
+{
+  "id": "cs0003",
+  "hdg": "Cube Reaction Hybrid SLT 500 E-Bike",
+  "imgsrc": "assets/images/CubeReactionHybridHPASLT500E-Bike.jpg",
+  "price": [2548.99],
+  "brieftxt": "Cube's Reaction Hybrid SLT 500 E-Bike symbolises high-tech aluminium E-MTB technology. If you are interested in the bike’s definitive drivetrain performance or the finest handling experience, you’ll be glad to know it all fits together here in a package that combines all of Cube’s E-bike knowledge in a single, outstanding hardtail  ..."
+},
+{
+  "id": "cs0004",
+  "hdg": "Cube Stereo Hybrid 120 HPA Pro E-Bike 27.5 2017",
+  "imgsrc": "assets/images/cubeStereoHybrid120HPAProEbike275.jpg",
+  "price": [2199.99],
+  "brieftxt": "The popular trail-taming, full suspension Stereo Hybrid 120 HPA Pro E-Bike gets a makeover for the season ahead. The efficient 120mm of suspension travel and powerful Bosch drive system takes everything from root-infested trails to dirt roads in its stride. Cube has managed to squeeze more from this frame by tweaking their already much-admired ..."
+}
+  ]
+}

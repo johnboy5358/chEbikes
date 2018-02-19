@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>eBikes</title>
+</head>
+<body>
+  <header id="main-header">
+    <h1>Coleshill e-bikes</h1>
+    <p id="basket-icon" title="click to show your basket"><i class="fas fa-shopping-cart"></i><span id="basket-items">0</span> total: £<span id="basket-total">0</span></p>
+  </header>
+  <div class="wrapper">
+    <aside id="sidebar">
+      <h3>Sidebar</h3>
+      <ul id="menu">
+        <li class="menu-item">Home</li>
+        <li class="menu-item">Products</li>
+        <li class="menu-item">Contact</li>
+      </ul>
+    </aside>
+    <main id="main-content-wrapper">
+
+      <h2>Electric Bikes</h2>
+      <!-- on page load => display: none -->
+      <div id="basket-content"></div>
+
+      <!-- on page load => display grid -->
+      <div id="main-content"></div>
+
+    </main>
+    <footer id="footer">
+      <ul>
+        <h3>General</h3>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Contact Us/FAQs</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">All News & Updates</a></li>
+        <li><a href="#">Email Unsubscribe</a></li>
+      </ul>
+      <ul>
+        <h3>Categories</h3>
+        <li><a href="#">Bikes</a></li>
+        <li><a href="#">Frames & Forks</a></li>
+        <li><a href="#">Components</a></li>
+        <li><a href="#">Wheels & Tyres</a></li>
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Protection</a></li>
+        <li><a href="#">Nutrition & Training</a></li>
+        <li><a href="#">Workshop</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Footwear</a></li>
+        <li><a href="#">Clearance</a></li>
+      </ul>
+      <ul>
+        <h3>Customer service</h3>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Returning an item</a></li>
+        <li><a href="#">Warranty</a></li>
+        <li><a href="#">Cycle To Work Scheme</a></li>
+        <li><a href="#">Track my order</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+      <ul>
+        <h3>About us</h3>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Our story</a></li>
+        <li><a href="#">Our team</a></li>
+      </ul>
+      <form id="email-signup">
+        <h3>Email signup</h3>
+        <h4>Sign up & save</h4>
+        <p>Get £5 off your first order and be the first to hear about our latest offers, news & promotions. £50 minimum spend required.</p>
+        <p>
+          <input type="text" name="email" value="email">
+        </p>
+        <p>
+          <input type="submit" name="send" value="Send">
+        </p>
+      </form>
+    </footer>
+  </div>
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+</html>

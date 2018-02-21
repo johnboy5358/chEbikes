@@ -65,10 +65,11 @@
   // Front page, #main-content listener to captue any message types.
   domMainContent.addEventListener('click', e => {
     const matchId = regExTest(e.target.id)
+
     switch (true) {
       // listen for add button clicks.
-      case matchId(/add#/):
-        const bikeId = e.target.id.match(/add#(\w*)$/)[1]
+      case matchId(/^add#/):
+        const bikeId = e.target.id.match(/^add#(\w*)$/)[1]
         bikeJsonProm.then((data) => {
           basket.items.push(data.bikeData.filter(bike => bike.id === bikeId)[0])
           domBasket['item-count'].innerText = basket.items.length
@@ -83,8 +84,10 @@
   domBasket.content.addEventListener('click', e => {
     const id = e.target.id
     const matchId = regExTest(id)
-    const matchContinueShopping = matchId(/continue-shopping/)
-    const matchRemove = matchId(/remove#([a-z]{2}\d{4})/)
+    const matchContinueShopping = matchId(/^continue-shopping$/)
+    const matchRemove = matchId(/^remove#([a-z]{2}\d{4})$/)
+    const matchCheckout = matchId(/^checkout$/)
+
     switch (true) {
       case matchContinueShopping:
         console.log("Close basket and show front-page again.")
@@ -92,12 +95,15 @@
         domBasket.content.style.display = 'none'
         break;
       case matchRemove:
-        const bikeId = id.match(/[a-z]{2}\d{4}/)[0]
+        const bikeId = id.match(/[a-z]{2}\d{4}$/)[0]
         const result = basket.items.filter(bike => bike.id !== bikeId)
         basket.items = result
         domBasket['item-count'].innerText = result.length
         domBasket['total'].innerText = Math.round(result.reduce((p,c) => p+c.price[0], 0) *100) / 100
         document.getElementById(bikeId).remove()
+        break;
+      case matchCheckout:
+        console.log('Show the checkout');
         break;
       default:
         console.log("NoOp")
@@ -108,9 +114,9 @@
   // listen for clicks on the main-header.
   domBasket.icon.addEventListener('click', e => {
     const matchId = regExTest(e.target.id)
+
     switch (true) {
       case matchId(/basket-i/):
-        console.log("You want to see what is in the basket")
         showBasket(e)
         break;
       default:
@@ -141,11 +147,9 @@
   }
 
   function showBasket(e) {
-    console.log(e.target.id)
     domMainContent.style.display = 'none'
     domBasket.content.style.display = 'grid'
-    domBasket.content.innerHTML =
-    `
+    domBasket.content.innerHTML = (`
       <h2>Your basket:</h2>
       <table>
         <tbody>
@@ -165,7 +169,7 @@
         <button id="continue-shopping">Continue shopping</button>
         <button id="checkout">Check out</button>
       </div>
-    `
+    `)
   }
 
 }())
